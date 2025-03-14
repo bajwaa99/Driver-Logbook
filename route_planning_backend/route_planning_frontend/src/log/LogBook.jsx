@@ -123,14 +123,14 @@ function LogBook({logData}) {
     }
 
     // Draw activity lines and connections
-    if (logData && logData.log_sheets ?.[0]) {
+    if (logData && logData.log_sheets?.[0]) {
       let previousActivity = null;
       let prevX, prevY = null;
 
       ctx.strokeStyle = "blue";
       ctx.lineWidth = 3;
 
-      logData.log_sheets ?.[0].log_sheet_activities.forEach((activityData) => {
+      logData.log_sheets?.[0].log_sheet_activities.forEach((activityData) => {
         let currentActivity = activityData.status;
         const start_time = Number(activityData.start_time.split(":")[0]) * 4 * hourWidth + (Number(activityData.start_time.split(":")[1]) / 15)* hourWidth
         let ending_time = activityData.end_time
@@ -186,6 +186,8 @@ function LogBook({logData}) {
               break;
           }
 
+          console.log(prevBarY);
+
           ctx.beginPath();
           ctx.moveTo(gridStartX + prevX, prevY);
           ctx.lineTo(gridStartX + start_time, barY);
@@ -195,7 +197,7 @@ function LogBook({logData}) {
         previousActivity = currentActivity;
         prevX = end_time;
         prevY = barY;
-        ctx.fillText(`${activityData ?.remarks || ''}`, end_time, gridStartY + gridHeight + 20);
+        ctx.fillText(`${activityData?.remarks || ''}`, end_time, gridStartY + gridHeight + 20);
       });
       ctx.lineWidth = 1;
 
@@ -211,21 +213,21 @@ function LogBook({logData}) {
 
     // Draw other text and data
     ctx.fillText(`Drivers Daily Log`, gridStartX, 20);
-    ctx.fillText(`From: ${logData ?.start_date || ''}`, gridStartX, 40);
-    ctx.fillText(`To: ${logData ?.end_date || ''}`, gridStartX + 200, 40);
-    ctx.fillText(`Name of Carrier: ${logData ?.log_sheets ?.[0].carrier_name || ''}`, gridStartX + 400, 50);
+    ctx.fillText(`From: ${logData?.start_date || ''}`, gridStartX, 40);
+    ctx.fillText(`To: ${logData?.end_date || ''}`, gridStartX + 200, 40);
+    ctx.fillText(`Name of Carrier: ${logData?.log_sheets?.[0].carrier_name || ''}`, gridStartX + 400, 50);
 
-    ctx.fillText(`Total Miles Driving Today: ${logData ?.log_sheets ?.[0].total_miles_drove || ''}`, gridStartX, 60);
-    ctx.fillText(`Total Milage Today: ${logData ?.log_sheets ?.[0].total_mileage || ''}`, gridStartX + 200, 60);
-    ctx.fillText(`Main Office Address: ${logData ?.log_sheets ?.[0].main_office_address || ''}`, gridStartX + 400, 60);
+    ctx.fillText(`Total Miles Driving Today: ${logData?.log_sheets?.[0].total_miles_drove || ''}`, gridStartX, 60);
+    ctx.fillText(`Total Milage Today: ${logData?.log_sheets?.[0].total_mileage || ''}`, gridStartX + 200, 60);
+    ctx.fillText(`Main Office Address: ${logData?.log_sheets?.[0].main_office_address || ''}`, gridStartX + 400, 60);
 
-    ctx.fillText(`Truck/Tractor No: ${logData ?.log_sheets ?.[0].truck_number || ''}`, gridStartX, 70);
-    ctx.fillText(`Trailer No: ${logData ?.log_sheets ?.[0].trailer_number || ''}`, gridStartX + 200, 70);
-    ctx.fillText(`Home Terminal Address: ${logData ?.log_sheets ?.[0].home_terminal_address || ''}`, gridStartX + 400, 70);
+    ctx.fillText(`Truck/Tractor No: ${logData?.log_sheets?.[0].truck_number || ''}`, gridStartX, 70);
+    ctx.fillText(`Trailer No: ${logData?.log_sheets?.[0].trailer_number || ''}`, gridStartX + 200, 70);
+    ctx.fillText(`Home Terminal Address: ${logData?.log_sheets?.[0].home_terminal_address || ''}`, gridStartX + 400, 70);
 
     ctx.fillText(`Remarks`, gridStartX, gridStartY + gridHeight + 30);
-    ctx.fillText(`Shipping Documents: DVL or Manifest No. ${logData ?.log_sheets ?.[0].dvl_manifest_no || ''}`, gridStartX, gridStartY + gridHeight + 50);
-    ctx.fillText(` Shipper & Commodity: ${logData ?.log_sheets ?.[0].shipper_commodity || ''}`, gridStartX, gridStartY + gridHeight + 80);
+    ctx.fillText(`Shipping Documents: DVL or Manifest No. ${logData?.log_sheets?.[0].dvl_manifest_no || ''}`, gridStartX, gridStartY + gridHeight + 50);
+    ctx.fillText(` Shipper & Commodity: ${logData?.log_sheets?.[0].shipper_commodity || ''}`, gridStartX, gridStartY + gridHeight + 80);
 
   }, [logData]);
 

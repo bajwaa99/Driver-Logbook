@@ -110,7 +110,7 @@ function LogForm() {
     const handleActivityInputChange = (e) => {
         const { name, value } = e.target;
         const [field, index, subField] = name.split('.');
-        console.log("name",name);
+        console.log("name",name,field);
     
         setLogSheetActivityData((prevData) => {
             const updatedActivities = [...prevData];
