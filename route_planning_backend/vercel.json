@@ -14,7 +14,7 @@
 ],
     "routes": [
         {
-            "src": "/(.*)",
+            "src": "/api/(.*)",
             "dest": "route_planning_backend/wsgi.py" 
         },
         {
