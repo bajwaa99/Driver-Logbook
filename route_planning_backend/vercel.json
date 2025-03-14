@@ -13,14 +13,20 @@
       }
 ],
     "routes": [
-        {
-            "src": "/api/(.*)",
-            "dest": "route_planning_backend/wsgi.py" 
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/index.html"
-          }
-    ]
+    {
+      "src": "/api/(.*)",
+      "dest": "route_planning_backend/wsgi.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "route_planning_frontend/build/$1"
+    }
+  ],
+    "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 
 }
