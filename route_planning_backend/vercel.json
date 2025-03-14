@@ -21,12 +21,6 @@
       "src": "/(.*)",
       "dest": "route_planning_frontend/build/$1"
     }
-  ],
-    "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
   ]
 
 }
