@@ -19,7 +19,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "build"
+            "dest": "build/index.html"
           }
     ]
 
