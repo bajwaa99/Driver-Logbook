@@ -21,13 +21,6 @@
       "src": "/(.*)",
       "dest": "route_planning_frontend/index.html"
     }
-  ],
-    "rewrites": [
-        {
-            "src": "/(.*)",
-            "dest": "/route_planning_frontend/index.html"
-          }
-
-    ]
+  ]
 
 }
