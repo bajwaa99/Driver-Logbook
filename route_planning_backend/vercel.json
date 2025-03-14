@@ -19,8 +19,15 @@
     },
     {
       "src": "/(.*)",
-      "dest": "route_planning_frontend/build/$1"
+      "dest": "route_planning_frontend/index.html"
     }
-  ]
+  ],
+    "rewrites": [
+        {
+            "src": "/(.*)",
+            "dest": "/route_planning_frontend/index.html"
+          }
+
+    ]
 
 }
