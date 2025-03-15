@@ -8,7 +8,7 @@
     {
       "src": "route_planning_frontend/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "route_planning_frontend/build" }
+      "config": { "distDir": "build" }
     }
   ],
   "routes": [
