@@ -19,7 +19,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "route_planning_frontend/index.html"
+      "dest": "/vercel/output/"
     }
   ]
 
