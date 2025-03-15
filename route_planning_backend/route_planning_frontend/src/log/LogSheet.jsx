@@ -170,7 +170,7 @@ function LogForm() {
                     log_sheet_activities: logSheetActivityData,
                 })),
             };
-            const response = await axios.post('http://localhost:8000/api/trip/calculate/', payload);
+            const response = await axios.post('https://driver-logbook-backend.vercel.app/api/trip/calculate/', payload);
             setLogbookData(response.data);   
             // alert('Log submitted successfully!');
         } catch (error) {
