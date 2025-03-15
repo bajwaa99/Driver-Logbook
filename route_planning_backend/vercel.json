@@ -11,5 +11,11 @@
       "src": "/api/(.*)",
       "dest": "route_planning_backend/wsgi.py"
     }
-  ]
+  ],
+  "functions": {
+    "api/trip/calculate": {
+      "runtime": "python3.9",
+      "includeFiles": ["route_planning_backend/api/migrations/**"]
+    }
+  }
 }
