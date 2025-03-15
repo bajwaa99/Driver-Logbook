@@ -6,9 +6,13 @@
       "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     },
     {
-      "src": "route_planning_backend/api/**/*.py",
-      "use": "@vercel/python"
-  }
+      "src": "manage.py",
+      "use": "@vercel/python",
+      "config": {
+        "runtime": "python3.9",
+        "command": "python manage.py migrate"
+      }
+    }
   ],
   "routes": [
     {
@@ -17,3 +21,4 @@
     }
   ]
 }
+ 
