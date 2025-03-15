@@ -15,10 +15,6 @@
     {
       "src": "/api/(.*)",
       "dest": "route_planning_backend/wsgi.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/route_planning_frontend/build/$1"
     }
   ]
 }
