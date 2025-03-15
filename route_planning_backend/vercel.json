@@ -1,26 +1,24 @@
 {
-    "builds": [{
-        "src": "route_planning_backend/wsgi.py",
-        "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+  "builds": [
+    {
+      "src": "route_planning_backend/wsgi.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     },
     {
-        "src": "route_planning_frontend/package.json",
-        "use": "@vercel/static-build",
-        "config": {
-          "distDir": "build"
-        }
-      }
-],
-    "routes": [
+      "src": "route_planning_frontend/",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "route_planning_frontend/build" }
+    }
+  ],
+  "routes": [
     {
       "src": "/api/(.*)",
       "dest": "route_planning_backend/wsgi.py"
     },
     {
       "src": "/(.*)",
-      "dest": "route_planning_frontend/index.html"
+      "dest": "route_planning_frontend/build/index.html"
     }
   ]
-
 }
