@@ -1,19 +1,5 @@
 {
-  "builds": [
-    {
-      "src": "route_planning_backend/wsgi.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-    },
-    {
-      "src": "manage.py",
-      "use": "@vercel/python",
-      "config": {
-        "runtime": "python3.9",
-        "command": "python manage.py migrate"
-      }
-    }
-  ],
+  "buildCommand": "python manage.py migrate",
   "routes": [
     {
       "src": "/api/(.*)",
@@ -21,4 +7,3 @@
     }
   ]
 }
- 
