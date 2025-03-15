@@ -18,7 +18,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "route_planning_frontend/build/index.html"
+      "dest": "/route_planning_frontend/build/$1"
     }
   ]
 }
