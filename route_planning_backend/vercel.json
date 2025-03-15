@@ -19,7 +19,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "build/"
+      "dest": "route_planning_frontend/index.html"
     }
   ]
 
