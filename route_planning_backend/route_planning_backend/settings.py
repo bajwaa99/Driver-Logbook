@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 
+import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -79,14 +81,11 @@ WSGI_APPLICATION = 'route_planning_backend.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join('/tmp', 'db.sqlite3'),  # Move to writable directory
-    }
+    'default': dj_database_url.config(
+        default="postgresql://neondb_owner:npg_aSEtH9WvMRo6@ep-bitter-heart-a4js3kx4-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require",
+        conn_max_age=600
+    )
 }
-
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
